@@ -24,6 +24,9 @@ var velocity = Vector2()
 
 onready var anim = get_node("Anims")
 
+onready var Root = get_tree().get_root() 
+onready var GlobalVars = Root.get_child(Root.get_child_count() - 1).GlobalVars
+
 func _ready():
 	get_node("BoostTimer").connect("timeout", self, "boost_mode_end")
 	set_process_input(true)

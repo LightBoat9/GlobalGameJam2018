@@ -2,10 +2,15 @@ extends Node
 
 var maps = [
 	load("res://tiles/Maps/0.tscn"),
+	load("res://tiles/Maps/1.tscn"),
+	load("res://tiles/Maps/2.tscn"),
 ]
 
 var MAP_HEIGHT = 384
 var map_count = 0
+
+onready var Root = get_tree().get_root() 
+onready var GlobalVars = Root.get_child(Root.get_child_count() - 1).GlobalVars
 
 func _ready():
 	_spawn_level(rand_map())
@@ -24,4 +29,5 @@ func _spawn_level(level):
 	
 func rand_map():
 	"""Returns a random map from the maps array"""
-	return maps[rand_range(0, maps.size() - 1)]
+	randomize()
+	return maps[rand_range(0, maps.size())]
