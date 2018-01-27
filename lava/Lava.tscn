@@ -1,0 +1,23 @@
+[gd_scene format=1]
+
+[node name="Lava" type="KinematicBody2D"]
+
+transform/pos = Vector2( 160, 0 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="ColorFrame" type="ColorFrame" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 400.0
+margin/bottom = 400.0
+color = Color( 0.769531, 0.0631256, 0.0631256, 1 )
+
+
