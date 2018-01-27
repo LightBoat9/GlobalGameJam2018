@@ -22,6 +22,8 @@ var on_ground = false
 var boost_velocity = Vector2()
 var velocity = Vector2()
 
+onready var anim = get_node("Anims")
+
 func _ready():
 	get_node("BoostTimer").connect("timeout", self, "boost_mode_end")
 	set_process_input(true)
@@ -39,7 +41,34 @@ func _input(event):
 func _fixed_process(delta):
 	_velocity(delta)
 	_move_and_slide()
+	_animate()
+
+func _animate():
+	var horz = velocity.x
 	
+	if velocity.x < 0:
+		anim.set_flip_h(true)
+	elif velocity.x > 0:
+		anim.set_flip_h(false)
+	
+	if on_ground:
+		if velocity.x == 0:
+			anim.set_animation("stand")
+		elif in_first_gear():
+			anim.set_animation("walk")
+		else:
+			anim.set_animation("run")
+	else:
+		anim.set_animation("jump")
+		var vert = round(velocity.y)
+		
+		if vert < 0:
+			anim.set_frame(0)
+		elif vert > 0:
+			anim.set_frame(2)
+		else:
+			anim.set_frame(1)
+
 func _velocity(delta):
 	"""Handles player velocity and direction based on user input."""
 		
