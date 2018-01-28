@@ -1,11 +1,24 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://lava/Lava.gd" type="Script" id=1]
+[ext_resource path="res://lava/wava1.png" type="Texture" id=2]
+[ext_resource path="res://lava/wava2.png" type="Texture" id=3]
+[ext_resource path="res://lava/wava3.png" type="Texture" id=4]
+[ext_resource path="res://lava/wava4.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 200, 200 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Lava" type="KinematicBody2D"]
 
@@ -24,10 +37,10 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 0.0
+margin/top = 16.0
 margin/right = 400.0
-margin/bottom = 400.0
-color = Color( 0.769531, 0.0631256, 0.0631256, 1 )
+margin/bottom = 416.0
+color = Color( 1, 0.258824, 0, 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -46,5 +59,229 @@ angular_damp = 1.0
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite1" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 16, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 32, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 48, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 64, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 80, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 96, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 112, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 128, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 144, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite10" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 160, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite11" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 176, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite12" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 192, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite13" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 208, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite14" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 224, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite15" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 240, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite16" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 256, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite17" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 272, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite18" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 288, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite19" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 304, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite20" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 320, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite21" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 336, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite22" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 352, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite23" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 368, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="AnimatedSprite24" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 384, 0 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
 
 

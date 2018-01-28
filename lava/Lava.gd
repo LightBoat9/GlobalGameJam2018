@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-var START_SPEED = 60
+var START_SPEED = 50
 var MAX_SPEED = 70
-var SPEED_INC = 5
-var INC_DIST = 1000
+var SPEED_INC = 2
+var INC_DIST = 500
 var CLAMP_DIST = 500
 
 var velocity = Vector2(0, -START_SPEED)
