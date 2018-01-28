@@ -1,5 +1,7 @@
 extends Container
 
+signal gears_shifted
+
 onready var small = get_node("gear_small")
 onready var small_base = small.get_pos()
 onready var small_off = small_base-Vector2(0,16)
@@ -33,6 +35,7 @@ onready var GlobalVars = Root.get_child(Root.get_child_count() - 1).GlobalVars
 
 func _ready():
 	GlobalVars.Player.connect("gear_toggle", self, "_toggle")
+	connect("gears_shifted",GlobalVars.Player,"switch_gears")
 	set_process(true)
 	if smallOrBig:
 		big.set_pos(big_off)
@@ -75,6 +78,7 @@ func _process(delta):
 		else:
 			done = _transfer(big,big_base)
 		if done:
+			emit_signal("gears_shifted")
 			transition = 0
 	else:
 		_rotate()
