@@ -3,22 +3,22 @@ extends Container
 onready var small = get_node("gear_small")
 onready var small_base = small.get_pos()
 onready var small_off = small_base-Vector2(0,16)
-onready var small_rotBase = small.get_rot()
+onready var small_rotBase = small.get_rotd()
 onready var small_rot = small_rotBase
 var small_mult = 0.5
 
 onready var med = get_node("gear_med")
-onready var med_rotBase = med.get_rot()
+onready var med_rotBase = med.get_rotd()
 onready var med_rot = med_rotBase
 
 onready var big = get_node("gear_big")
 onready var big_base = big.get_pos()
 onready var big_off = big_base+Vector2(0,16)
-onready var big_rotBase = big.get_rot()
+onready var big_rotBase = big.get_rotd()
 onready var big_rot = big_rotBase
 var big_mult = 2
 
-var rotRate = 5
+var rotRate = 10
 
 var smallOrBig = true
 var transition = 0
@@ -43,14 +43,17 @@ func _ready():
 
 func _toggle():
 	smallOrBig = !smallOrBig
-	med.set_rot(med_rotBase)
+	med.set_rotd(med_rotBase)
+	med_rot = med_rotBase
 	transition = 1
 	if smallOrBig:
-		big.set_rot(big_rotBase)
+		big.set_rotd(big_rotBase)
+		big_rot = big_rotBase
 		active = small
 	else:
-		small.set_rot(small_rotBase)
+		small.set_rotd(small_rotBase)
 		inactive = big
+		small_rot = small_rotBase
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
@@ -94,10 +97,10 @@ func _rotate():
 	if smallOrBig:
 		small_rot += rotRate
 		med_rot -= rotRate * small_mult
-		small.set_rot(small_rot)
-		med.set_rot(med_rot)
+		small.set_rotd(small_rot)
+		med.set_rotd(med_rot)
 	else:
 		big_rot += rotRate
 		med_rot -= rotRate * big_mult
-		big.set_rot(big_rot)
-		med.set_rot(med_rot)
+		big.set_rotd(big_rot)
+		med.set_rotd(med_rot)
