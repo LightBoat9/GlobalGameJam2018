@@ -41,7 +41,7 @@ func _input(event):
 	
 	if air_boost or in_second_gear():
 		# Switch gears on user input
-		if event.is_action_pressed("ui_interact") and !waiting and !in_boost_mode:
+		if event.is_action_pressed("ui_interact") and !waiting:
 			if in_first_gear():
 				air_boost = false
 			emit_signal("gear_toggle")
