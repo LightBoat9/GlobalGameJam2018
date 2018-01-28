@@ -28,9 +28,12 @@ var accel = 0.5
 var active
 var inactive
 
+onready var Root = get_tree().get_root() 
+onready var GlobalVars = Root.get_child(Root.get_child_count() - 1).GlobalVars
+
 func _ready():
+	GlobalVars.Player.connect("gear_toggle", self, "_toggle")
 	set_process(true)
-	#set_process_input(true)
 	if smallOrBig:
 		big.set_pos(big_off)
 		active = small

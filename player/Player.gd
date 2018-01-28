@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal gear_toggle
+
 var gear = 1
 
 var SPEED_GEAR_1 = 100
@@ -12,7 +14,8 @@ var GRAVITY_INC = 20
 var MAX_GRAVITY = 500
 
 var JUMPPOWER = 500
-var BOOST_POWER = 500
+var BOOST_V_POWER = 100
+var BOOST_H_POWER = 500
 var in_boost_mode = false
 
 var direction = 1
@@ -38,20 +41,23 @@ func _input(event):
 		if in_second_gear() and on_ground or in_first_gear():
 			if in_first_gear():
 				start_boost_mode()
-				speed = BOOST_POWER
+				if not on_ground:
+					gravity = -BOOST_V_POWER
+				speed = BOOST_H_POWER
 			switch_gears()
+			emit_signal("gear_toggle")
 	
 func _fixed_process(delta):
 	_velocity(delta)
-	_move_and_slide()
 	_animate()
+	_move_and_slide()
 
 func _animate():
 	var horz = velocity.x
 	
-	if velocity.x < 0:
+	if horz < 0:
 		anim.set_flip_h(true)
-	elif velocity.x > 0:
+	elif horz > 0:
 		anim.set_flip_h(false)
 	
 	if on_ground:
@@ -116,7 +122,11 @@ func _move_and_slide():
 		if (get_collision_normal().x != 0):
 			velocity.x = 0
 			speed = 0
-			direction = -direction
+			if on_ground and in_second_gear():
+				direction = -direction
+				
+		if get_collider().is_in_group("weakwalls") and in_second_gear():
+			get_collider().destroy()
 			
 		_jumping()
 		
@@ -124,9 +134,6 @@ func _move_and_slide():
 		remainder = n.slide(remainder)
 		velocity = n.slide(velocity)
 		move(remainder)
-		
-	if gravity != 0:
-		on_ground
 		
 func _jumping():
 	"""Allows player to jump on input"""

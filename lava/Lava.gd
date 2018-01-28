@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var SPEED = 60
-var CLAMP_DIST = 600
+var CLAMP_DIST = 500
 
 var velocity = Vector2(0, -SPEED)
 
