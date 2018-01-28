@@ -6,6 +6,10 @@ var maps = [
 	load("res://tiles/Maps/2.tscn"),
 	load("res://tiles/Maps/3.tscn"),
 	load("res://tiles/Maps/4.tscn"),
+	load("res://tiles/Maps/5.tscn"),
+	load("res://tiles/Maps/6.tscn"),
+	load("res://tiles/Maps/7.tscn"),
+	load("res://tiles/Maps/8.tscn")
 ]
 
 var MAP_HEIGHT = 384
