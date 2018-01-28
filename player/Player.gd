@@ -6,7 +6,7 @@ var gear = 1
 
 var SPEED_GEAR_1 = 100
 var SPEED_GEAR_2 = 300
-var speed = SPEED_GEAR_1
+var speed = 0
 var acceleration = 5
 
 var gravity = 0
@@ -38,14 +38,13 @@ func _ready():
 func _input(event):
 	# Switch gears on user input
 	if event.is_action_pressed("ui_interact"):
-		if in_second_gear() and on_ground or in_first_gear():
-			if in_first_gear():
-				start_boost_mode()
-				if not on_ground:
-					gravity = -BOOST_V_POWER
-				speed = BOOST_H_POWER
-			switch_gears()
-			emit_signal("gear_toggle")
+		if in_first_gear():
+			start_boost_mode()
+			if not on_ground:
+				gravity = -BOOST_V_POWER
+			speed = BOOST_H_POWER
+		switch_gears()
+		emit_signal("gear_toggle")
 	
 func _fixed_process(delta):
 	_velocity(delta)
