@@ -1,17 +1,6 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://temp/temp_tile.png" type="Texture" id=1]
-[ext_resource path="res://temp/temp_all.png" type="Texture" id=2]
-[ext_resource path="res://temp/temp_right.png" type="Texture" id=3]
-[ext_resource path="res://temp/temp_left.png" type="Texture" id=4]
-[ext_resource path="res://temp/temp_up.png" type="Texture" id=5]
-[ext_resource path="res://temp/temp_down.png" type="Texture" id=6]
-[ext_resource path="res://temp/temp_left_right.png" type="Texture" id=7]
-[ext_resource path="res://temp/temp_up_down.png" type="Texture" id=8]
-[ext_resource path="res://temp/temp_end_left.png" type="Texture" id=9]
-[ext_resource path="res://temp/temp_end_right.png" type="Texture" id=10]
-[ext_resource path="res://temp/temp_end_up.png" type="Texture" id=11]
-[ext_resource path="res://temp/temp_end_down.png" type="Texture" id=12]
+[ext_resource path="res://tiles/coolTiles.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,9 +11,10 @@ extents = Vector2( 8, 8 )
 
 [node name="temp_tile" type="Sprite" parent="."]
 
-editor/display_folded = true
 texture = ExtResource( 1 )
 centered = false
+region = true
+region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="temp_tile"]
 
@@ -48,10 +38,11 @@ _update_shape_index = 0
 
 [node name="temp_all" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 16, 0 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
+region = true
+region_rect = Rect2( 16, 0, 17, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="temp_all"]
 
@@ -77,8 +68,10 @@ _update_shape_index = 0
 
 editor/display_folded = true
 transform/pos = Vector2( 32, 0 )
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 centered = false
+region = true
+region_rect = Rect2( 32, 0, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="temp_right"]
 
@@ -102,10 +95,11 @@ _update_shape_index = 0
 
 [node name="temp_left" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 48, 0 )
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
 centered = false
+region = true
+region_rect = Rect2( 48, 0, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="temp_left"]
 
@@ -131,8 +125,10 @@ _update_shape_index = 0
 
 editor/display_folded = true
 transform/pos = Vector2( 64, 0 )
-texture = ExtResource( 5 )
+texture = ExtResource( 1 )
 centered = false
+region = true
+region_rect = Rect2( 0, 16, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="temp_up"]
 
@@ -158,8 +154,10 @@ _update_shape_index = 0
 
 editor/display_folded = true
 transform/pos = Vector2( 80, 0 )
-texture = ExtResource( 6 )
+texture = ExtResource( 1 )
 centered = false
+region = true
+region_rect = Rect2( 48, 16, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="temp_down"]
 
@@ -185,8 +183,10 @@ _update_shape_index = 0
 
 editor/display_folded = true
 transform/pos = Vector2( 0, 16 )
-texture = ExtResource( 7 )
+texture = ExtResource( 1 )
 centered = false
+region = true
+region_rect = Rect2( 48, 32, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="temp_left_right"]
 
@@ -212,8 +212,10 @@ _update_shape_index = 0
 
 editor/display_folded = true
 transform/pos = Vector2( 16, 16 )
-texture = ExtResource( 8 )
+texture = ExtResource( 1 )
 centered = false
+region = true
+region_rect = Rect2( 32, 32, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="temp_up_down"]
 
@@ -239,8 +241,10 @@ _update_shape_index = 0
 
 editor/display_folded = true
 transform/pos = Vector2( 32, 16 )
-texture = ExtResource( 9 )
+texture = ExtResource( 1 )
 centered = false
+region = true
+region_rect = Rect2( 0, 32, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="temp_end_left"]
 
@@ -266,8 +270,10 @@ _update_shape_index = 0
 
 editor/display_folded = true
 transform/pos = Vector2( 48, 16 )
-texture = ExtResource( 10 )
+texture = ExtResource( 1 )
 centered = false
+region = true
+region_rect = Rect2( 16, 32, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="temp_end_right"]
 
@@ -293,8 +299,10 @@ _update_shape_index = 0
 
 editor/display_folded = true
 transform/pos = Vector2( 64, 16 )
-texture = ExtResource( 11 )
+texture = ExtResource( 1 )
 centered = false
+region = true
+region_rect = Rect2( 16, 16, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="temp_end_up"]
 
@@ -318,10 +326,11 @@ _update_shape_index = 0
 
 [node name="temp_end_down" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 80, 16 )
-texture = ExtResource( 12 )
+texture = ExtResource( 1 )
 centered = false
+region = true
+region_rect = Rect2( 32, 16, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="temp_end_down"]
 
