@@ -1,9 +1,12 @@
 extends KinematicBody2D
 
-var SPEED = 60
+var START_SPEED = 60
+var MAX_SPEED = 80
+var SPEED_INC = 10
+var INC_DIST = 2000
 var CLAMP_DIST = 500
 
-var velocity = Vector2(0, -SPEED)
+var velocity = Vector2(0, -START_SPEED)
 
 
 onready var Root = get_tree().get_root() 
@@ -17,8 +20,13 @@ func _process(delta):
 	var player_dist = abs(GlobalVars.Player.get_pos().y - get_pos().y)
 	set_pos(Vector2(get_pos().x, min(get_pos().y, GlobalVars.Player.get_pos().y + CLAMP_DIST)))
 	
+	var speed = (START_SPEED + (int(GlobalVars.Score.score / INC_DIST) * SPEED_INC))
+	speed = max(speed, MAX_SPEED)
+	velocity.y = -speed
+	
 	move(velocity * delta)
 	
 func player_enter(body):
 	if body == GlobalVars.Player:
+		SaveLoad.save_game()
 		get_tree().reload_current_scene()

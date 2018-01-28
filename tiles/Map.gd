@@ -11,5 +11,4 @@ func _ready():
 	
 func _process(delta):
 	if GlobalVars.Lava.get_pos().y < get_pos().y - FREE_OFFSET:
-		print("TEST")
 		queue_free()

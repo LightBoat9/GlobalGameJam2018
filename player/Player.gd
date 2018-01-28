@@ -131,11 +131,7 @@ func _move_and_slide():
 			speed = 0
 			if on_ground and in_second_gear():
 				direction = -direction
-				
-		if get_collider().is_in_group("weakwalls") and in_second_gear():
-			get_collider().destroy()
 			
-		
 		_jumping()
 		
 		var n = get_collision_normal()
