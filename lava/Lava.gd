@@ -5,6 +5,7 @@ var CLAMP_DIST = 500
 
 var velocity = Vector2(0, -SPEED)
 
+
 onready var Root = get_tree().get_root() 
 onready var GlobalVars = Root.get_child(Root.get_child_count() - 1).GlobalVars
 
